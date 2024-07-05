@@ -1,0 +1,26 @@
+{
+    "name": "jcrodsolutions/laravel-user-stamp",
+    "description": "Enables automatic user stamp on created_by and updated_by fields within a model.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jcrodsolutions\\LaravelUserStamp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Julio C. Rodriguez",
+            "email": "jcrodsolutions@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "~8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jcrodsolutions\\LaravelUserStamp\\UserStampServiceProvider"
+            ]
+        }
+    }
+}
