@@ -1,5 +1,9 @@
 
 # Laravel User Stamp✒️
+[![PHP Version](https://img.shields.io/packagist/php-v/jcrodsolutions/laravel-user-stamp.svg)](https://packagist.org/packages/jcrodsolutions/laravel-user-stamp)
+[![Packagist Version](https://img.shields.io/packagist/v/jcrodsolutions/laravel-user-stamp.svg)](https://packagist.org/packages/jcrodsolutions/laravel-user-stamp)
+[![Packagist](https://img.shields.io/packagist/dt/jcrodsolutions/laravel-user-stamp.svg)](https://packagist.org/packages/jcrodsolutions/laravel-user-stamp)
+[![Github](https://img.shields.io/github/license/jcrodsolutions/laravel-user-stamp.svg)](https://packagist.org/packages/jcrodsolutions/laravel-user-stamp)
 
 Enables automatic user stamp on created_by and updated_by fields within a model.
 
