@@ -25,17 +25,23 @@ trait UserStampTrait
 
         static::creating(function ($model) use ($creadoPor, $actualizadoPor) {
             $user_id = auth()->id();
-            if (Schema::hasColumn($model->getTable(), $creadoPor)) {
+            $columns = Schema::getColumnListing($model->getTable());
+
+            if (in_array($creadoPor,$columns)) {
+                $model->fillable = array_merge($model->fillable, [$creadoPor]);
                 $model->$creadoPor = $user_id;
             }
-            if (Schema::hasColumn($model->getTable(), $actualizadoPor)) {
+            if (in_array($actualizadoPor,$columns)) {
+                $model->fillable = array_merge($model->fillable, [$actualizadoPor]);
                 $model->$actualizadoPor = $user_id;
             }
         });
 
         static::updating(function ($model) use ($actualizadoPor) {
             $user_id = auth()->id();
-            if (Schema::hasColumn($model->getTable(), $actualizadoPor)) {
+            $columns = Schema::getColumnListing($model->getTable());
+            if (in_array($actualizadoPor,$columns)) {
+                $model->fillable = array_merge($model->fillable, [$actualizadoPor]);
                 $model->$actualizadoPor = $user_id;
             }
         });

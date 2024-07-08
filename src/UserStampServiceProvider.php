@@ -22,9 +22,8 @@ class UserStampServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/user-stamp.php' => config_path(path: 'user-stamp.php'),
         ]);
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/user-stamp.php', 'user-stamp'
-        );
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->mergeConfigFrom(__DIR__ . '/../config/user-stamp.php', 'user-stamp');
 
         /*
          * This is for using $table->ato(); in any migration.
