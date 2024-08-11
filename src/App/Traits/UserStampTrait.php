@@ -8,7 +8,7 @@ trait UserStampTrait
 {
     /*
     To use a specific field name in a model:
-    protected static $activo = 'activo';
+    protected static $active = 'activo';
     protected static $createdBy = 'creado_por';
     protected static $updatedBy = 'actualizado_por';
      */

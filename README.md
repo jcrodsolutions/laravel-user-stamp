@@ -22,6 +22,7 @@ class  MyModel  extends  Model
 ```
 ## Global defaults
 Globally, the default field names the trait will try to populate are 
+* active
 * created_by
 * updated_by
 
@@ -42,6 +43,7 @@ class  MyModel  extends  Model
 {
 	use  UserStampTrait;
 	protected  $fillable = ['codename','name','created_by','updated_by'];
+	protected  static  $active = 'activo';
 	protected  static  $createdBy = 'creado_por';
 	protected  static  $updatedBy = 'actualizado_por';
 	
