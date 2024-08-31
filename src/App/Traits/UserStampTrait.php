@@ -2,6 +2,7 @@
 
 namespace Jcrodsolutions\LaravelUserStamp\App\Traits;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Schema;
 
 trait UserStampTrait
