@@ -4,6 +4,7 @@ namespace Jcrodsolutions\LaravelUserStamp\App\Traits;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Schema;
+use Cache;
 
 trait UserStampTrait
 {
@@ -16,7 +17,12 @@ trait UserStampTrait
 
     public function initializeUserStampTrait()
     {
-        $columns = Schema::getColumnListing($this->getTable());
+        //$columns = Schema::getColumnListing($this->getTable());
+        $tableName = $this->getTable();
+        $cacheKey = 'user_stamp_' . $tableName;
+        $columns = Cache::remember($cacheKey, now()->addHours(2), function() use ($tableName){
+            return Schema::getColumnListing($tableName);
+        });
 
         $strActive = property_exists(static::class, 'active') ? self::$active : config('user-stamp.active', 'active');
         $strCreadoPor = property_exists(static::class, 'createdBy') ? self::$createdBy : config('user-stamp.created_by', 'created_by');
