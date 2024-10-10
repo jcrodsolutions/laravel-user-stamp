@@ -20,13 +20,13 @@ trait UserStampTrait
         //$columns = Schema::getColumnListing($this->getTable());
         $tableName = $this->getTable();
         $cacheKey = 'user_stamp_' . $tableName;
-        if (Schema::hasTable('cache')) {
+        // if (Schema::hasTable('cache')) {
             $columns = Cache::remember($cacheKey, now()->addHours(2), function () use ($tableName) {
                 return Schema::getColumnListing($tableName);
             });
-        } else {
-            $columns = Schema::getColumnListing($tableName);
-        }
+        // } else {
+        //     $columns = Schema::getColumnListing($tableName);
+        // }
 
         $strActive = property_exists(static::class, 'active') ? self::$active : config('user-stamp.active', 'active');
         $strCreadoPor = property_exists(static::class, 'createdBy') ? self::$createdBy : config('user-stamp.created_by', 'created_by');
